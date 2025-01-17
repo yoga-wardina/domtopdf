@@ -18,8 +18,8 @@
 
     .container {
         padding: 20px;
-        width: 210mm;
-        height: 297mm;
+        width: 650px;
+        height: 900px;
         border: 1px dashed black
     }
 
@@ -82,7 +82,6 @@
     .signarea {
         width: 300px;
         height: fit-content;
-        border: 1px solid black;
         gap: 1px
     }
 
@@ -115,26 +114,48 @@
         width: 150px;
     }
 
+    .text-center {
+        text-align: center;
+    }
+
+    .float-right {
+        margin-left: auto;
+        right: 0;
+        float: right;
+    }
+
 </style>
 
 <body>
     <div class="container text-normal">
-        <div class="mb-5 w-full flex justify-center">
-            <img width="200px" src="{{ asset('https://ebelanja.id/images/logo.png') }}"
-                alt="">
+        <div class="mb-5 w-full flex justify-center text-center">
+            <img width="200px" src="https://ebelanja.id/images/logo.png" />
         </div>
         <hr class="mb-10">
-        Selamat bergabung di aplikasi ebelanja.
-        <p class="flex justify-between w-text"><b>ID akun</b><span class="text-left w-right block">: 53099205</span></p>
-        <p class="flex justify-between w-text"><b>Nama</b><span class="text-left w-right block">: powerbank</span></p>
-        <p class="flex justify-between w-text"><b>No. Akun</b><span class="text-left w-right block">:
-                085155169968</span></p>
-        <p class="flex justify-between w-text"><b>No. owner</b><span class="text-left w-right block">:
-                081344544799</span></p>
-        <p class="flex justify-between w-text"><b>Nama Sels</b> <span class="text-left w-right block">: Adri sj</span>
+        <p>Selamat bergabung di aplikasi ebelanja. APAAP</p>
+        <p class="flex justify-between w-text">
+            <b>ID akun </b>
+            <span class="text-left w-right "> &nbsp;&nbsp;&nbsp;&nbsp;: {{ $account_code }}</span>
+        </p>
+        <p class="flex justify-between w-text">
+            <b>Nama&nbsp;</b>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="text-left w-right ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ $account_name }}</span>
+        </p>
+        <p class="flex justify-between w-text">
+            <b>No. Akun </b>
+            <span class="text-left w-right "> &nbsp;&nbsp;: {{ $no_akun }}</span>
+        </p>
+        <p class="flex justify-between w-text">
+            <b>No. owner </b>
+            <span class="text-left w-right "> &nbsp;: {{ $no_owner }}</span>
+        </p>
+        <p class="flex justify-between w-text">
+            <b>Nama Sels </b>
+            <span class="text-left w-right "> &nbsp;: {{ $sels }}</span>
         </p>
 
-        <span class="mb-5 block">Limit saldo akan dirubah dari : <b>Rp 27.086.600</b> Jadi : <b>Rp 27.086.600</b></span>
+        <span class="mb-5 block">Limit saldo akan dirubah dari : <b>Rp {{ number_format($curr_limit) }}</b> Jadi : <b>Rp
+                {{ number_format($new_limit) }}</b></span>
         <span class="mb-5 block">
             Hal Hal yang perlu di perhatikan <br>
             1. Komplen masalah transaksi bisa via aplikasi ebelanja <br>
@@ -144,10 +165,10 @@
             <br>
             Terimakasih atas perhatiannya
         </span>
-        <div class="flex w-full justify-end">
-            <div class="signarea flex items-center flex-col">
-                <p>{{ date('F j, Y') }}</p>
-                <img src="{{ $img }}" width="200px" alt="">
+        <div class="flex w-full justify-end ">
+            <div class="signarea flex items-center flex-col float-right text-center">
+                <p>{{ $date->translatedFormat('d F Y') }}</p>
+                <img src="assets/temp/temp-image.png" width="200px" alt="">
                 <hr width="80%">
                 <p> powerbank </p>
             </div>
